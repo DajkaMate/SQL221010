@@ -1,0 +1,21 @@
+use diak59;
+CREATE TABLE `Diak` (
+ `diak_azon` int(11) NOT NULL,
+ `diak_nev` char(10) NOT NULL,
+ `neme` char(1) NOT NULL,
+ `kora` int(11) NOT NULL,
+ PRIMARY KEY (`diak_azon`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+Insert into `Diak`
+VALUES (1,'SM','F',16),(2,'SK','L',17),(3,'CB','L',17),(4,'NE','F',16),(5,'KE','L',18),(6,'TZS','L',18),(7,'BD','F',18);
+
+Insert into `Diak`
+VALUES (8,'SCS','F',19)
+
+Select MAX(`kora`) from `Diak` where `neme` = "L";
+Select MAX(`kora`) from `Diak` where `neme` = "F";
+
+SELECT * FROM `Diak`WHERE `neme` = "F" and `kora` < (SELECT AVG(`kora`) FROM Diak WHERE `neme` = "F")
+UNION ALL
+SELECT * FROM `Diak`WHERE `neme` = "L" and `kora` < (SELECT AVG(`kora`) FROM Diak WHERE `neme` = "L");
