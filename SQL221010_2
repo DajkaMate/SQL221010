@@ -1,0 +1,40 @@
+1) 
+SELECT DISTINCT fnev
+FROM futar;
+
+2)
+SELECT DISTINCT pnev, par 
+FROM pizza;
+
+3)
+SELECT AVG(par) 
+FROM pizza;
+
+4)
+SELECT pnev, par 
+FROM pizza 
+WHERE par < 2000;
+
+5)
+SELECT futar.fnev 
+FROM rendeles, futar 
+WHERE rendeles.fazon = futar.fazon
+AND rendeles.razon=1;
+
+6)
+SELECT vevo.vnev 
+FROM vevo
+NATURAL JOIN rendeles 
+WHERE Time(rendeles.idopont)< TIME('12:00:00');
+
+7)
+SELECT DISTINCT pizza.pnev 
+FROM vevo
+NATURAL JOIN rendeles
+NATURAL JOIN tetel
+NATURAL JOIN pizza 
+WHERE vevo.vnev='Morgo';
+
+8)
+ALTER TABLE pizza RENAME COLUMN par TO pár;
+
